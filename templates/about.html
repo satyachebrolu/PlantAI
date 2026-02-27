@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - PlantCare AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">
+                    <!-- Leaf SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z" />
+                        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+                    </svg>
+                </div>
+                <span class="logo-text">PlantCare AI</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about" class="active">About</a></li>
+                <li><a href="/upload" class="btn-nav">Get Started</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="hero-title">About Our Technology</h1>
+            <p class="hero-subtitle" style="margin: 0 auto;">Transforming agriculture with artificial intelligence</p>
+        </div>
+    </header>
+
+    <!-- Our Mission -->
+    <section class="container">
+        <div class="about-grid">
+            <div class="about-text">
+                <h2 style="margin-bottom: 20px;">Our Mission</h2>
+                <p>Our mission is to empower farmers, gardeners, and agronomists with accessible, highly accurate
+                    disease detection software. Catching plant diseases early means mitigating entire crop losses,
+                    saving valuable time and resources, and promoting sustainable farming practices globally.</p>
+                <p style="margin-top: 15px;">By leveraging advanced artificial intelligence and computer vision
+                    techniques, we strive to take the guesswork out of plant care and disease management, making
+                    AI-assisted sustainable agriculture accessible to everyone.</p>
+            </div>
+            <div class="about-image">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="1.5">
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="container">
+        <h2 class="section-title">How It Works</h2>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3>Upload Image</h3>
+                <p>Snap a clear photo of the problematic leaf and upload it securely to our platform.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3>AI Analysis</h3>
+                <p>Our underlying MobileNetV2 architecture scans and processes the image in milliseconds.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3>Get Results</h3>
+                <p>Receive an accurate diagnosis along with targeted treatment recommendations immediately.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our AI Model -->
+    <section class="container" style="margin-bottom: 80px;">
+        <h2 class="section-title">Our AI Model</h2>
+        <div class="model-grid">
+            <div class="model-card">
+                <h3>Architecture</h3>
+                <p>We use MobileNetV2 with transfer learning, fine-tuned specifically for optimal performance on edge
+                    devices without compromising accuracy.</p>
+            </div>
+            <div class="model-card">
+                <h3>Training Data</h3>
+                <p>Trained extensively on 87,000+ carefully labeled, augmented plant images covering various growth
+                    stages and disease severities.</p>
+            </div>
+            <div class="model-card">
+                <h3>Supported Plants</h3>
+                <p>Current support includes Apple, Tomato, Potato, Grape, Corn (Maize), Strawberry, Cherry, Peach, and
+                    more common crops.</p>
+            </div>
+            <div class="model-card">
+                <h3>Disease Coverage</h3>
+                <p>Capable of detecting over 38 different diseases, from Apple Scab to Tomato Yellow Leaf Curl Virus,
+                    plus healthy condition verifications.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="container benefits">
+        <div class="benefit-item">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+            <span>Early Detection</span>
+        </div>
+        <div class="benefit-item">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2">
+                <line x1="12" y1="1" x2="12" y2="23" />
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+            </svg>
+            <span>Cost Effective</span>
+        </div>
+        <div class="benefit-item">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2">
+                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z" />
+                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+            </svg>
+            <span>Sustainable</span>
+        </div>
+        <div class="benefit-item">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+            </svg>
+            <span>Fast & Accurate</span>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Try It Yourself?</h2>
+            <p>Analyze your plants with state-of-the-art computer vision right now.</p>
+            <a href="/upload" class="btn-primary">Start Detection</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h4>About Plant Disease Detection System</h4>
+                    <p>Our advanced AI-powered platform utilizes state-of-the-art deep learning technology to accurately
+                        identify plant diseases in real-time. With a comprehensive database of plant conditions and
+                        diseases, we help farmers, gardeners, and agricultural professionals make informed decisions
+                        about plant health management.</p>
+                </div>
+                <div class="footer-brand">
+                    <div class="logo-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z" />
+                            <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+                        </svg>
+                    </div>
+                    <span>Smart Bridge Hyderabad</span>
+                    <p>Empowering agriculture through innovative AI solutions</p>
+                    <p>© 2025 Smart Bridge Hyderabad. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

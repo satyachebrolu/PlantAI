@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Result - PlantCare AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">
+                    <!-- Leaf SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z" />
+                        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+                    </svg>
+                </div>
+                <span class="logo-text">PlantCare AI</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/upload" class="active btn-nav">New Analysis</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header" style="padding: 40px 0; margin-bottom: 40px;">
+        <div class="container">
+            <h1 class="hero-title" style="font-size: 2.5rem; margin-bottom: 10px;">Analysis Complete</h1>
+            <p class="hero-subtitle" style="margin: 0 auto;">Here's what our AI model found</p>
+        </div>
+    </header>
+
+    <!-- Result Container -->
+    <section class="container result-container">
+        <div class="result-card">
+            <div class="result-image">
+                <div>
+                    <h4 style="color:var(--text-medium); margin-bottom: 15px; text-align:center;">Uploaded Image</h4>
+                    <img src="{{ url_for('static', filename=image_path) }}" alt="Analyzed Plant Leaf">
+                </div>
+            </div>
+
+            <div class="result-details">
+                {% if prediction.is_healthy %}
+                <div class="status-badge status-healthy">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    HEALTHY PLANT
+                </div>
+                {% else %}
+                <div class="status-badge status-diseased">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="12" y1="8" x2="12" y2="12" />
+                        <line x1="12" y1="16" x2="12.01" y2="16" />
+                    </svg>
+                    DISEASE DETECTED
+                </div>
+                {% endif %}
+
+                <div class="detail-row">
+                    <div class="detail-label">Plant Type</div>
+                    <div class="detail-value">{{ prediction.plant_type }}</div>
+                </div>
+
+                <div class="detail-row">
+                    <div class="detail-label">Condition</div>
+                    <div class="detail-value"
+                        style="color: {% if prediction.is_healthy %}var(--success){% else %}var(--danger){% endif %}">
+                        {{ prediction.condition }}
+                    </div>
+                </div>
+
+                <div class="confidence-bar">
+                    <div class="detail-label" style="display:flex; justify-content:space-between;">
+                        <span>AI Confidence Score</span>
+                        <span>{{ prediction.confidence }}%</span>
+                    </div>
+                    <div class="bar-bg">
+                        <div class="bar-fill" style="width: {{ prediction.confidence }}%;"></div>
+                    </div>
+                </div>
+
+                <div class="recommendations">
+                    <h4>{% if prediction.is_healthy %}Keep Your Plant Healthy{% else %}Recommended Actions{% endif %}
+                    </h4>
+                    <ul>
+                        {% for rec in prediction.recommendations %}
+                        <li>{{ rec }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="result-actions">
+                    <a href="/upload" class="btn-primary" style="flex:1;">Analyze Another Image</a>
+                    <a href="/" class="btn-secondary">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h4>About Plant Disease Detection System</h4>
+                    <p>Our advanced AI-powered platform utilizes state-of-the-art deep learning technology to accurately
+                        identify plant diseases in real-time. With a comprehensive database of plant conditions and
+                        diseases, we help farmers, gardeners, and agricultural professionals make informed decisions
+                        about plant health management.</p>
+                </div>
+                <div class="footer-brand">
+                    <div class="logo-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z" />
+                            <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+                        </svg>
+                    </div>
+                    <span>Smart Bridge Hyderabad</span>
+                    <p>Empowering agriculture through innovative AI solutions</p>
+                    <p>© 2025 Smart Bridge Hyderabad. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
